@@ -1,8 +1,8 @@
-import users_table from './users_table'
-import { LOADIPHLPAPI } from 'dns'
+import me from './me'
+import users from './users'
 
 // API
-
 export default {
-  users_table
+  me,
+  users
 }
