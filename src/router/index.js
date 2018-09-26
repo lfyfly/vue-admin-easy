@@ -8,22 +8,12 @@ import UTIL from '@/UTIL'
 import guest_routes from './routes/guest'
 import role_routes from './routes/role'
 import users_common_routes from './routes/users_common'
-let routes = [...guest_routes, ...role_routes, ...users_common_routes]
+let routes = [...guest_routes, ...role_routes, ...users_common_routes].concat({ path: '*', redirect: '/404' })
 
 Vue.use(Router)
 
 const router = new Router({
-  routes: [
-    ...routes,
-    {
-      path: '/404',
-      component: () => import('@/pages/not-find'),
-      meta: {
-        layout: 'HeaderSideLayout'
-      }
-    },
-    { path: '*', redirect: '/404' }
-  ]
+  routes
 })
 
 router.beforeEach(async (to, from, next) => {

@@ -1,5 +1,5 @@
 <template>
-  <div class="not-find">
+  <div class="not-found">
     <h1>404</h1>
     <h3>{{msg}}</h3>
   </div>
@@ -7,17 +7,17 @@
 
 <script>
 export default {
-  name: 'not-find',
+  name: 'not-found',
   data () {
     return {
-      msg: 'this is from not-find.vue'
+      msg: 'this is from not-found.vue'
     }
   }
 }
 </script>
 
 <style lang='scss' scoped>
-.not-find{
+.not-found{
 
 }
 </style>
