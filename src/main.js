@@ -4,7 +4,10 @@ import router from './router'
 import store from './store'
 
 import '@/mock'
-
+import layouts from '@/layouts'
+Object.keys(layouts).map(layoutName => {
+  Vue.component(layoutName, layouts[layoutName])
+})
 Vue.config.productionTip = false
 
 new Vue({

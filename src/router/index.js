@@ -19,7 +19,6 @@ const router = new Router({
 router.beforeEach(async (to, from, next) => {
   const token = UTIL.token.get()
   // 未登录
-  alert(to.path)
   if (!token && !guest_routes.some(route => route.path === to.path)) {
     next('/login')
     return

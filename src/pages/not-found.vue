@@ -2,6 +2,8 @@
   <div class="not-found">
     <h1>404</h1>
     <h3>{{msg}}</h3>
+    <router-link to="/home">to home page</router-link>
+
   </div>
 </template>
 
