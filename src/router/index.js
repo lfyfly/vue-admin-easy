@@ -13,7 +13,17 @@ let routes = [...guest_routes, ...role_routes, ...users_common_routes]
 Vue.use(Router)
 
 const router = new Router({
-  routes
+  routes: [
+    ...routes,
+    {
+      path: '/404',
+      component: () => import('@/pages/not-find'),
+      meta: {
+        layout: 'HeaderSideLayout'
+      }
+    },
+    { path: '*', redirect: '/404' }
+  ]
 })
 
 router.beforeEach(async (to, from, next) => {
@@ -28,12 +38,12 @@ router.beforeEach(async (to, from, next) => {
   // 已经登录，未获取用户信息
   if (token && !store.state.my_info) {
     try {
-      let my_info = (await API.me.read()).data
+      let my_info = (await API.me.read()).data.user_info
       store.commit('SET_MY_INFO', my_info)
     } catch (err) {
       // token 失效
-      UTIL.token.remove()
-      console.log(localStorage.token)
+      // UTIL.token.remove()
+      // console.log(localStorage.token)
       if (to.path === '/login') return
       next('/login')
       return
