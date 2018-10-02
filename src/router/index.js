@@ -45,8 +45,8 @@ router.beforeEach(async (to, from, next) => {
     const roles = store.state.my_info.roles
     const match_route = nav_routes.filter(route => to.path === route.path)[0]
     if (match_route && match_route.meta.roles && UTIL.array_intersection(match_route.meta.roles, roles).length === 0) {
-      alert('无权限进入此页面')
-      next('/home')
+      console.log('无权限进入此页面')
+      next('/401')
       return
     }
     // 进入路由不属于这个权限

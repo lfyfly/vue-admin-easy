@@ -3,7 +3,12 @@
     <img alt="Vue logo" src="~@/assets/logo.png">
     <p>is_dev：{{is_dev}}</p>
     <p>is_mobile：{{is_mobile}}</p>
-    <router-link to="/users">to users page</router-link>
+    <div>
+      <router-link to="/users/list">to users page</router-link>
+    </div>
+    <div>
+      <router-link to="/roles">to roles page</router-link>
+    </div>
   </div>
 </template>
 
