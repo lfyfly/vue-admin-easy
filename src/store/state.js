@@ -5,5 +5,6 @@ export default {
   is_mobile: (/(iPhone|iPod|iPad|Android|ios)/i).test(navigator.userAgent),
 
   // 用户
-  my_info: null
+  my_info: null,
+  nav_config: null
 }

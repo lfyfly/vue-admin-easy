@@ -1,25 +1,23 @@
 <template>
-  <div class="not-found">
-    <h1>404</h1>
+  <div class="users-table-page">
     <h3>{{msg}}</h3>
     <router-link to="/home">to home page</router-link>
-
   </div>
 </template>
 
 <script>
 export default {
-  name: 'not-found',
+  name: 'users-table-page',
   data () {
     return {
-      msg: 'this is from not-found.vue'
+      msg: 'this is from users-table-page.vue'
     }
   }
 }
 </script>
 
 <style lang='scss' scoped>
-.not-found{
+.users-table-page{
 
 }
 </style>

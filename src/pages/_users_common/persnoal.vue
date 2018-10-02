@@ -1,23 +1,22 @@
 <template>
-  <div class="users">
+  <div class="persnoal-page">
     <h3>{{msg}}</h3>
-    <router-link to="/home">to home page</router-link>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'users',
+  name: 'persnoal-page',
   data () {
     return {
-      msg: 'this is from users.vue'
+      msg: 'this is from persnoal-page.vue'
     }
   }
 }
 </script>
 
 <style lang='scss' scoped>
-.users{
+.persnoal-page{
 
 }
 </style>

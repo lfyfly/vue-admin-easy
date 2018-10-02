@@ -16,7 +16,7 @@ mock
     // axios config
     let token = cfg.headers.token
     if (token === '123456') {
-      return [200, { user_info: { username: 'lfy', role: 'admin' } }]
+      return [200, { user_info: { username: 'lfy', roles: ['admin'] } }]
     } else {
       return [401, { type: 'error', message: 'token失效' }]
     }

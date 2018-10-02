@@ -2,14 +2,14 @@
 export default [
   {
     path: '/login',
-    component: () => import('@/pages/login'),
+    component: () => import('@/pages/_guest/login'),
     meta: {
       layout: 'blank-layout'
     }
   },
   {
     path: '/404',
-    component: () => import('@/pages/not-found'),
+    component: () => import('@/pages/_guest/not-found'),
     meta: {
       layout: 'header-side-layout'
     }
