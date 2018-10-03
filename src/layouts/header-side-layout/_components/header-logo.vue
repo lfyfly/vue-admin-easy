@@ -1,6 +1,7 @@
 <template>
   <div class="header-logo">
-    <h3>{{msg}}</h3>
+    <div class="logo-container short-logo">
+    </div>
   </div>
 </template>
 
@@ -16,6 +17,22 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.header-logo{
+@import "../config.scss";
+
+.header-logo {
+  height: $header-height;
+  width: $left-side-width;
+  box-sizing: border-box;
+  padding: 10px;
+  & > .logo-container {
+    height: 100%;
+    background:  no-repeat center/contain;
+    &.short-logo {
+      background-image: url(~@/assets/img/logo.png);
+    }
+    &.long-logo {
+      background-image: url(~@/assets/img/logo.png);
+    }
+  }
 }
 </style>

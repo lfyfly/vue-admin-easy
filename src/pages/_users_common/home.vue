@@ -1,6 +1,6 @@
 <template>
   <div class="home-page">
-    <img alt="Vue logo" src="~@/assets/logo.png">
+    <img alt="Vue logo" src="~@/assets/img/logo.png">
     <p>is_dev：{{is_dev}}</p>
     <p>is_mobile：{{is_mobile}}</p>
     <div>

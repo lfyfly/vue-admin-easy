@@ -1,5 +1,5 @@
 <template>
-  <div class="header-side-layout">
+  <div class="header-side-layout" :class="[skin]">
     <div class="header-container">
       <div class="header-left">
         <header-logo/>
@@ -11,7 +11,9 @@
       </div>
     </div>
     <div class="side-nav-container">
-      <side-nav/>
+      <div class="side-nav-hide-scrollbar-container">
+        <side-nav/>
+      </div>
     </div>
     <div class="page-container">
       <slot/>
@@ -37,25 +39,27 @@ export default {
   },
   data () {
     return {
-      msg: 'this is from header-side-layout.vue'
+      msg: 'this is from header-side-layout.vue',
+      skins: [],
+      skin: ''
     }
   }
 }
 </script>
-
 <style lang='scss' scoped>
+@import "./_skins/default.scss";
 @import "./config.scss";
 .header-side-layout {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   position: relative;
-  &>.header-container {
+  background: powderblue;
+  & > .header-container {
     position: absolute;
     top: 0;
     width: 100vw;
     height: $header-height;
-    background: #ccc;
 
     & > .header-left {
       float: left;
@@ -72,23 +76,27 @@ export default {
       }
     }
   }
-  &>.side-nav-container{
+  & > .side-nav-container {
     position: absolute;
     top: $header-height;
     bottom: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
     width: $left-side-width;
-    background: #eee;
+
+    & > .side-nav-hide-scrollbar-container {
+      height: calc(100vh - #{$header-height});
+      overflow-x: hidden;
+      overflow-y: scroll;
+      width: $left-side-width + 17px;
+    }
   }
-  &>.page-container{
+  & > .page-container {
     position: absolute;
     top: $header-height;
     left: $left-side-width;
     bottom: 0;
     right: 0;
     overflow: auto;
-    background: #f5f5f5;
   }
 }
 </style>

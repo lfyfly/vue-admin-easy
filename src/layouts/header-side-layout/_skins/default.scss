@@ -1,0 +1,13 @@
+// 主题色
+// 背景图
+// header side 背景色，文字颜色基本色，激活色
+$header-side-bg-color: rgba(0,0,0,.1);
+
+
+@import "./config.scss";
+.header-side-layout {
+  .header-container,
+  .side-nav-container {
+    background-color: $header-side-bg-color;
+  }
+}
