@@ -2,14 +2,7 @@
 // 背景图
 // header side 背景色，文字颜色基本色，激活色
 @import './config.scss';
-$bg-img: '~@/assets/img/wallpaper/wallpaper-2.jpg';
-$header-side-bg-color: rgba(255, 255, 255, 0);
-$layout-font-color: rgba(0, 0, 0, .4);
-$layout-font-active-color: orange;
-$page-container-bg-color: rgba(255, 255, 255, .8);
-// side nav
-$side-hover-bg-color: rgba(255, 255, 255, 0);
-$side-nav-item-height: 32px;
+
 .header-side-layout {
   background: no-repeat center/cover;
   background-image: url(#{$bg-img});

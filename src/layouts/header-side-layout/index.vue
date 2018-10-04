@@ -110,13 +110,13 @@ export default {
   & > .page-container {
     position: absolute;
     left: $left-side-width;
-    top: $header-height ;
+    top: $header-height;
     right: 8px;
     bottom: 4px;
     transition: all 0.3s;
     border-radius: 4px;
-    .page-container-inner{
-      padding: 0 10px;
+    .page-container-inner {
+      padding: 10px 10px 0 10px;
     }
   }
   &.full-mode > .page-container {
@@ -126,7 +126,6 @@ export default {
     right: 0;
     z-index: 9;
     border-radius: 0;
-
   }
   & > .full-mode-btn {
     width: 20px;
@@ -138,15 +137,16 @@ export default {
     cursor: pointer;
     .full-mode-icon {
       transform: rotateZ(-135deg);
-      color: rgba(0, 0, 0, 0.1);
+      color: $layout-font-color;
       font-size: 18px;
       position: relative;
       left: -4px;
       top: -4px;
+      opacity: 0.5;
     }
     &:hover {
       .full-mode-icon {
-        color: rgba(0, 0, 0, 0.5);
+        opacity: 1;
       }
     }
   }
