@@ -9,43 +9,52 @@
     <div>
       <router-link to="/roles">to roles page</router-link>
     </div>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
-    <p>ppp ppp ppp ppp pppp ppp p p pp  p pp </p>
+    <el-row>
+      <el-button>默认按钮</el-button>
+      <el-button type="primary">主要按钮</el-button>
+      <el-button type="success">成功按钮</el-button>
+      <el-button type="info">信息按钮</el-button>
+      <el-button type="warning">警告按钮</el-button>
+      <el-button type="danger">危险按钮</el-button>
+    </el-row>
+
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
+    <p>ppp ppp ppp ppp pppp ppp p p pp p pp </p>
   </div>
 </template>
 

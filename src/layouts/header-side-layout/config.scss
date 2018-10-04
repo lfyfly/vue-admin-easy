@@ -5,9 +5,11 @@ $header-min-width: 800px;
 
 $bg-img: '~@/assets/img/wallpaper/wallpaper-2.jpg'; // 壁纸 2 或 4
 $header-side-bg-color: rgba(255, 255, 255, 0);
-$layout-font-color: rgba(0, 0, 0, .4); // 暗色rgba rgba(255, 255, 255, .8);
-$layout-font-active-color: orange;
+$layout-font-color: rgba(0, 0, 0, .4); // 亮色背景图
+// $layout-font-color: rgba(255, 255, 255, .7);  // 暗色背景图
+$layout-font-active-color: #4fc08d;
 $page-container-bg-color: rgba(255, 255, 255, .8);
 // side nav
 $side-hover-bg-color: rgba(255, 255, 255, 0);
 $side-nav-item-height: 32px;
+

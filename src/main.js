@@ -6,7 +6,7 @@ import '@/assets/css/reset.css'
 import '@/mock'
 import layouts from '@/layouts'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import '@/element-variables.scss'
 Vue.use(ElementUI)
 
 Object.keys(layouts).map(layoutName => {
