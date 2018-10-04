@@ -14,7 +14,7 @@ $side-nav-item-height: 32px;
   background: no-repeat center/cover;
   background-image: url(#{$bg-img});
   .header-container,
-  .side-nav-container {
+  .side-container {
     background-color: $header-side-bg-color;
     color: $layout-font-color;
     a {
@@ -23,11 +23,9 @@ $side-nav-item-height: 32px;
   }
   .page-container {
     background: $page-container-bg-color;
-    top: $header-height + 2px!important;
-    right: 8px!important;
-    bottom: 4px!important;
-    border-radius: 8px;
+
   }
+ 
   .side-nav {
     .el-menu {
       background-color: rgba(0, 0, 0, 0);
@@ -42,8 +40,9 @@ $side-nav-item-height: 32px;
     .el-submenu__icon-arrow,
     .el-icon-arrow-down {
       font-weight: bold;
-      top: 0;
-      right: 12px;
+      font-size: 10px;
+      top: 0px;
+      right: 8px;
       margin-top: 0;
     }
     .el-menu-item i,

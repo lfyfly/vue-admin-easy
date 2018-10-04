@@ -1,5 +1,5 @@
 <template>
-  <div class="header-side-layout" :class="[skin]">
+  <div class="header-side-layout" :class="[skin, {'full-mode': is_full_mode}]">
     <div class="header-container">
       <div class="header-left">
       </div>
@@ -8,15 +8,21 @@
         <header-user-info/>
       </div>
     </div>
-    <div class="side-nav-container">
+    <div class="side-container">
       <header-logo/>
-      <div class="side-nav-hide-scrollbar-container">
+      <el-scrollbar class="side-nav-container">
         <side-nav/>
-      </div>
+      </el-scrollbar>
+
     </div>
     <el-scrollbar class="page-container">
-      <slot>page-container</slot>
+      <div class="page-container-inner">
+        <slot>page-container</slot>
+      </div>
     </el-scrollbar>
+    <div class="full-mode-btn" :title="(is_full_mode?'退出':'进入')+'全覆盖模式'" @click="toggle_full_mode">
+      <i class="full-mode-icon el-icon-caret-right"></i>
+    </div>
   </div>
 </template>
 
@@ -38,14 +44,21 @@ export default {
     return {
       msg: 'this is from header-side-layout.vue',
       skins: [],
+      is_full_mode: false,
       skin: ''
+    }
+  },
+  methods: {
+    toggle_full_mode () {
+      this.is_full_mode = !this.is_full_mode
     }
   }
 }
 </script>
 <style lang='scss'>
 @import "./_skins/default.scss";
-.page-container .el-scrollbar__wrap {
+.page-container .el-scrollbar__wrap,
+.side-nav-container .el-scrollbar__wrap {
   overflow-x: hidden;
 }
 </style>
@@ -57,6 +70,7 @@ export default {
   height: 100vh;
   overflow: hidden;
   position: relative;
+
   & > .header-container {
     position: absolute;
     z-index: 1;
@@ -79,27 +93,62 @@ export default {
       float: right;
     }
   }
-  & > .side-nav-container {
+  & > .side-container {
     position: absolute;
     top: 0;
     bottom: 0;
     overflow: hidden;
     width: $left-side-width;
-
-    & > .side-nav-hide-scrollbar-container {
-      height: calc(100vh - #{$header-height});
-      overflow-x: hidden;
-      overflow-y: scroll;
-      width: $left-side-width + 17px;
+    .side-nav-container {
+      height: calc(100vh - #{$header-logo-height});
     }
+  }
+  &.full-mode > .side-container:hover + .page-container {
+    left: $left-side-width;
   }
 
   & > .page-container {
     position: absolute;
-    top: $header-height;
     left: $left-side-width;
+    top: $header-height ;
+    right: 8px;
+    bottom: 4px;
+    transition: all 0.3s;
+    border-radius: 4px;
+    .page-container-inner{
+      padding: 0 10px;
+    }
+  }
+  &.full-mode > .page-container {
+    top: 0;
     bottom: 0;
+    left: 6px;
     right: 0;
+    z-index: 9;
+    border-radius: 0;
+
+  }
+  & > .full-mode-btn {
+    width: 20px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    cursor: pointer;
+    .full-mode-icon {
+      transform: rotateZ(-135deg);
+      color: rgba(0, 0, 0, 0.1);
+      font-size: 18px;
+      position: relative;
+      left: -4px;
+      top: -4px;
+    }
+    &:hover {
+      .full-mode-icon {
+        color: rgba(0, 0, 0, 0.5);
+      }
+    }
   }
 }
 </style>

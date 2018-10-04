@@ -21,7 +21,7 @@ export default {
 
 .header-logo {
   margin: 6px 0;
-  height: $header-logo-height;
+  height: $header-logo-height - 6px * 2;
   width: $left-side-width;
   box-sizing: border-box;
   & > .logo-container {

@@ -44,6 +44,5 @@ export default {
 <style lang='scss' scope >
 @import "../config.scss";
 .side-nav {
-  min-height: calc(100vh - #{$header-height});
 }
 </style>

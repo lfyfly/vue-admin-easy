@@ -4,7 +4,7 @@ export default {
     return localStorage.getItem('token')
   },
   set (token) {
-    return localStorage.setItem(token)
+    return localStorage.setItem('token', token)
   },
   remove () {
     return localStorage.removeItem('token')
