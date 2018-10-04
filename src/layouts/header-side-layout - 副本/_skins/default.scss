@@ -4,7 +4,7 @@
 @import './config.scss';
 $bg-img: '~@/assets/img/wallpaper/wallpaper-2.jpg';
 $header-side-bg-color: rgba(255, 255, 255, 0);
-$layout-font-color: rgba(0, 0, 0, .4);
+$layout-font-color: rgba(0,0,0,.7);
 $layout-font-active-color: orange;
 $page-container-bg-color: rgba(255, 255, 255, .8);
 // side nav
@@ -41,9 +41,8 @@ $side-nav-item-height: 32px;
     }
     .el-submenu__icon-arrow,
     .el-icon-arrow-down {
-      font-weight: bold;
       top: 0;
-      right: 12px;
+      right: 16px;
       margin-top: 0;
     }
     .el-menu-item i,
@@ -57,18 +56,19 @@ $side-nav-item-height: 32px;
     }
     .el-submenu__title,
     .el-menu-item {
-      padding: 0 0 0 0px!important;
-      text-align: center;
+      padding: 0 0 0 20px!important;
+      text-align: left;
       min-width: auto;
       font-size: 14px;
-      font-weight: bold;
-      &.nav-son-item {
-        font-weight: normal;
-        font-size: 13px;
-        line-height: 30px;
-        height: 30px;
+      &.nav-son-item{
+      padding: 0 0 0 40px!important;
+      line-height: 30px;
+      height: 30px;
+        
       }
+      
     }
+  
     .el-menu-item.is-active {
       color: $layout-font-active-color;
       i {

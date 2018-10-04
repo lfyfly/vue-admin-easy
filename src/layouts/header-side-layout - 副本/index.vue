@@ -2,6 +2,8 @@
   <div class="header-side-layout" :class="[skin]">
     <div class="header-container">
       <div class="header-left">
+        <header-logo/>
+        <!-- <header-toggle-btn/> -->
       </div>
       <div class="header-right">
         <header-options/>
@@ -9,7 +11,6 @@
       </div>
     </div>
     <div class="side-nav-container">
-      <header-logo/>
       <div class="side-nav-hide-scrollbar-container">
         <side-nav/>
       </div>
@@ -23,6 +24,7 @@
 <script>
 import header_logo from './_components/header-logo'
 import header_options from './_components/header-options'
+import header_toggle_btn from './_components/header-toggle-btn'
 import header_user_info from './_components/header-user-info'
 import side_nav from './_components/side-nav'
 
@@ -31,6 +33,7 @@ export default {
   components: {
     'header-logo': header_logo,
     'header-options': header_options,
+    'header-toggle-btn': header_toggle_btn,
     'header-user-info': header_user_info,
     'side-nav': side_nav
   },
@@ -59,10 +62,9 @@ export default {
   position: relative;
   & > .header-container {
     position: absolute;
-    z-index: 1;
     top: 0;
-    left: $left-side-width;
-    right: 0;
+    width: 100vw;
+    min-width: $header-min-width;
     height: $header-height;
     & > .header-left,
     & > .header-right {
@@ -81,7 +83,7 @@ export default {
   }
   & > .side-nav-container {
     position: absolute;
-    top: 0;
+    top: $header-height;
     bottom: 0;
     overflow: hidden;
     width: $left-side-width;

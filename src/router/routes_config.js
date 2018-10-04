@@ -12,14 +12,14 @@ const nav_routes_config = [
   // 拥有title字段将会被分组，且会被过滤到
   {
     title: '用户管理',
-    icon: 'xxx',
+    // icon: 'el-icon-menu',
     roles: ['admin'],
     routes: users_routes
   },
   {
     title: '权限管理',
-    icon: 'xxx',
-    roles: ['root'],
+    // icon: 'el-icon-menu',
+    roles: ['admin'],
     // 当 routes数组仅有一个路由时则判定为 单独路由
     routes: roles_routes
   }

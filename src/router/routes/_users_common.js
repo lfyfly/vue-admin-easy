@@ -1,7 +1,7 @@
 // 登录用户通用路由
 export default [
   {
-    path: '/persnoal',
+    path: '/personal',
     component: () => import('@/pages/_users_common/persnoal'),
     meta: {
       layout: 'header-side-layout'

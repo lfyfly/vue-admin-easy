@@ -1,6 +1,6 @@
 <template>
   <div class="header-options">
-    <i class="el-icon-menu"></i>
+    <h3>options</h3>
   </div>
 </template>
 
@@ -19,8 +19,5 @@ export default {
 @import "../config.scss";
 .header-options{
   line-height: $header-height;
-  i{
-    cursor: pointer;
-  }
 }
 </style>

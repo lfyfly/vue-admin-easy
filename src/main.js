@@ -4,8 +4,11 @@ import router from './router'
 import store from './store'
 import '@/assets/css/reset.css'
 import '@/mock'
-
 import layouts from '@/layouts'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
+
 Object.keys(layouts).map(layoutName => {
   Vue.component(layoutName, layouts[layoutName])
 })

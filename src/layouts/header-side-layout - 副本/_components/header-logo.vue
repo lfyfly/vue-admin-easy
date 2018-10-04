@@ -20,10 +20,10 @@ export default {
 @import "../config.scss";
 
 .header-logo {
-  margin: 6px 0;
-  height: $header-logo-height;
+  height: $header-height;
   width: $left-side-width;
   box-sizing: border-box;
+  padding: $header-logo-top;
   & > .logo-container {
     height: 100%;
     background: url(~@/assets/img/logo.png) no-repeat center/contain;
