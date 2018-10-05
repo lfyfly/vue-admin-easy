@@ -1,10 +1,11 @@
 <template>
-  <div class="header-side-layout" :class="[skin, {'full-mode': is_full_mode}]">
+  <div class="header-side-layout" :class="[skin||'default', {'full-mode': is_full_mode}]">
     <div class="header-container">
       <div class="header-left">
       </div>
       <div class="header-right">
-        <header-options/>
+        <toggle-skin-btn @click.native="select_skin"/>
+        <fullscreen-btn/>
         <header-user-info/>
       </div>
     </div>
@@ -28,35 +29,39 @@
 
 <script>
 import header_logo from './_components/header-logo'
-import header_options from './_components/header-options'
 import header_user_info from './_components/header-user-info'
 import side_nav from './_components/side-nav'
-
+import fullscreen_btn from './_components/options/fullscreen-btn'
+import toggle_skin_btn from './_components/options/toggle-skin-btn'
 export default {
   name: 'header-side-layout',
   components: {
     'header-logo': header_logo,
-    'header-options': header_options,
     'header-user-info': header_user_info,
-    'side-nav': side_nav
+    'side-nav': side_nav,
+    'fullscreen-btn': fullscreen_btn,
+    'toggle-skin-btn': toggle_skin_btn
   },
   data () {
     return {
       msg: 'this is from header-side-layout.vue',
       skins: [],
       is_full_mode: false,
-      skin: ''
+      skin: 'dark'
     }
   },
   methods: {
     toggle_full_mode () {
       this.is_full_mode = !this.is_full_mode
+    },
+    select_skin () {
+      this.skin = this.skin === 'dark' ? 'default' : 'dark'
     }
   }
 }
 </script>
 <style lang='scss'>
-@import "./_skins/default.scss";
+@import "./_skins/index.scss";
 .page-container .el-scrollbar__wrap,
 .side-nav-container .el-scrollbar__wrap {
   overflow-x: hidden;
@@ -137,7 +142,6 @@ export default {
     cursor: pointer;
     .full-mode-icon {
       transform: rotateZ(-135deg);
-      color: $layout-font-color;
       font-size: 18px;
       position: relative;
       left: -4px;
