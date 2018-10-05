@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import UTIL from '@/UTIL'
 import header_logo from './_components/header-logo'
 import header_user_info from './_components/header-user-info'
 import side_nav from './_components/side-nav'
@@ -47,7 +48,7 @@ export default {
       msg: 'this is from header-side-layout.vue',
       skins: [],
       is_full_mode: false,
-      skin: 'dark'
+      skin: UTIL.storage.skin.get()
     }
   },
   methods: {
@@ -56,6 +57,7 @@ export default {
     },
     select_skin () {
       this.skin = this.skin === 'dark' ? 'default' : 'dark'
+      UTIL.storage.skin.set(this.skin)
     }
   }
 }
