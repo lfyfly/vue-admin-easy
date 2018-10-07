@@ -5,9 +5,9 @@ let mock = new MockAdapter(axios, { delayResponse: 100 })
 
 mock
   .onPost('/api/login').reply(cfg => {
-    let { username, password } = JSON.parse(cfg.data)
-    if (username === 'lfy' && password === '111111') {
-      return [200, { type: 'susscess', token: '123456' }]
+    let { email, password } = JSON.parse(cfg.data)
+    if (email === 'lfy@qq.com' && password === '111111') {
+      return [200, { type: 'success', token: '123456' }]
     } else {
       return [200, { type: 'error', message: '用户名或者密码输入错误' }]
     }
