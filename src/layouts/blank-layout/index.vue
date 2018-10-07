@@ -1,15 +1,18 @@
 <template>
-  <div class="blank-layout">
+  <div class="blank-layout" :class="skin||'skin-default'">
     <slot/>
   </div>
 </template>
 
 <script>
+import UTIL from '@/UTIL'
+
 export default {
   name: 'blank-layout',
   data () {
     return {
-      msg: 'this is from blank-layout.vue'
+      msg: 'this is from blank-layout.vue',
+      skin: UTIL.storage.skin.get()
     }
   },
   created () {
@@ -17,6 +20,9 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+@import './_skins/index.scss';
+</style>
 
 <style lang='scss' scoped>
 .blank-layout {

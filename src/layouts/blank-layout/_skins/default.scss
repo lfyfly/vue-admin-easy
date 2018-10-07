@@ -1,0 +1,6 @@
+$bg-img: '~@/assets/img/wallpaper/wallpaper-2.jpg';
+
+.skin-default.blank-layout {
+  background: no-repeat center/cover;
+  background-image: url(#{$bg-img});
+}

@@ -8,7 +8,7 @@ $side-hover-bg-color: rgba(255, 255, 255, 0);
 $side-nav-item-height: 32px;
 
 @import './config.scss';
-.dark.header-side-layout {
+.skin-dark.header-side-layout {
   background: no-repeat center/cover;
   background-image: url(#{$bg-img});
   .header-container,

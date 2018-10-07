@@ -1,5 +1,5 @@
 <template>
-  <div class="header-side-layout" :class="[skin||'default', {'full-mode': is_full_mode}]">
+  <div class="header-side-layout" :class="[skin||'skin-default', {'full-mode': is_full_mode}]">
     <div class="header-container">
       <div class="header-left">
       </div>
@@ -56,7 +56,7 @@ export default {
       this.is_full_mode = !this.is_full_mode
     },
     select_skin () {
-      this.skin = this.skin === 'dark' ? 'default' : 'dark'
+      this.skin = this.skin === 'skin-dark' ? 'skin-default' : 'skin-dark'
       UTIL.storage.skin.set(this.skin)
     }
   }
