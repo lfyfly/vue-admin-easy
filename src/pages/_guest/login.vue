@@ -102,6 +102,7 @@ export default {
     .logo {
       width: 80px;
       margin: 40px auto 20px;
+      opacity: .8;
       img {
         width: 100%;
       }
