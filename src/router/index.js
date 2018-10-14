@@ -60,6 +60,7 @@ function fliter_nav_routes_config (config, roles) {
     if (!group.roles || UTIL.array_intersection(group.roles, roles).length > 0) {
       group.routes = group.routes.filter(route => {
         if (!route.meta.roles) return true
+        if (route.meta.hide) return false
         return UTIL.array_intersection(route.meta.roles, roles).length > 0
       })
       if (group.routes.length !== 0) return true

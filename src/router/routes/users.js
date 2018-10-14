@@ -24,7 +24,8 @@ export default [
     meta: {
       layout: 'header-side-layout',
       roles: ['admin'],
-      title: '用户更新' // 路由title
+      title: '用户更新', // 路由title
+      hide: true // 可访问，但是不显示在nav中
     }
   }
   // 游客路由 和 用户路由都会被注册，当要被分到目录组中，只需要 路由地址和显示字段
