@@ -43,7 +43,7 @@ router.beforeEach(async (to, from, next) => {
   // 已经获取用户信息
   if (store.state.my_info) {
     const roles = store.state.my_info.roles
-    const match_route = nav_routes.filter(route => to.path === route.path)[0]
+    const match_route = all_routes.filter(route => to.path === route.path)[0]
     if (match_route && match_route.meta.roles && UTIL.array_intersection(match_route.meta.roles, roles).length === 0) {
       console.log('无权限进入此页面')
       next('/401')
