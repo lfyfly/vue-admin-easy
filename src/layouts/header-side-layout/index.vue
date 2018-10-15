@@ -4,7 +4,7 @@
       <div class="header-left">
       </div>
       <div class="header-right">
-        <toggle-skin-btn @click.native="select_skin"/>
+        <toggle-skin-btn @click.native="select_skin" />
         <fullscreen-btn/>
         <header-user-info/>
       </div>
@@ -67,6 +67,9 @@ export default {
 .page-container .el-scrollbar__wrap,
 .side-nav-container .el-scrollbar__wrap {
   overflow-x: hidden;
+}
+.side-nav-container .el-scrollbar__bar.is-horizontal {
+  display: none;
 }
 </style>
 
