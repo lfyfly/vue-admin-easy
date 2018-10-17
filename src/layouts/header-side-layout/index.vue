@@ -127,6 +127,7 @@ export default {
     border-radius: 4px;
     .page-container-inner {
       padding: 10px 10px 0 10px;
+      box-sizing:border-box;
     }
   }
   &.full-mode > .page-container {
