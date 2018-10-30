@@ -141,7 +141,7 @@ export default {
       })
     },
     reload () {
-      this.$router.push({ name: this.$router.name, query: this.searchForm })
+      this.$router.push({ path: this.$route.path, query: this.searchForm })
     },
     search () {
       this.reload()
