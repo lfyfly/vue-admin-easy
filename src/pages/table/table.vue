@@ -29,7 +29,7 @@
           <el-tag size="small" :type="scope.row.status===0? 'danger':'success'">{{scope.row.statusText}}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column label="操作" width="220">
+      <el-table-column label="操作" width="160">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="edit(scope.row)">
             编辑
@@ -83,7 +83,7 @@ export default {
   data () {
     return {
       staticConfig: {
-        editFields: ['name', 'email', 'phone', 'address', 'status'], //  [*必须] edit中的可编辑字段
+        editSubmitFields: ['id', 'name', 'email', 'phone', 'address', 'status'], //  [*必须] 编辑时要上传的字段
         initialQuery: { page: 1, pageSize: 20 }, //  初始getData query
         selectionShow: true, // 表格数据多选
         // 当exportExcelFields对象存在说明启用导出excel功能
@@ -163,17 +163,17 @@ export default {
       this.dialogForm.show = true
       this.dialogForm.confirmBtnText = '保 存'
       // 对可编辑字段进行筛选
-      this.dialogForm.form = this.filterEditableField(this.staticConfig.editFields, row)
+      this.dialogForm.form = this.filterEditableField(this.staticConfig.editSubmitFields, row)
     },
     createSubmit () {
       console.log('createSubmit ', this.dialogForm.form)
       this.$refs.dialogForm.validate((valid) => {
         if (valid) {
           alert('表单验证成功：createSubmit!')
-          API.table.create(this.dialogForm.form).then(res => {
-            this.getData()
-            this.$message.success(res.data.message)
-          })
+          // API.table.create(this.dialogForm.form).then(res => {
+          //   this.getData()
+          //   this.$message.success(res.data.message)
+          // })
         } else {
           console.log('表单验证失败：createSubmit!', this.dialogForm.form)
         }

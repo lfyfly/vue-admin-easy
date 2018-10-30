@@ -25,18 +25,20 @@ mock
   .onGet('/api/users').reply(cfg => {
     // axios config
     let token = cfg.headers.token
-    let { page, pageSize, name, phone, email, address, status } = cfg.params
-    let data = users.filter(v => {
-      if (name && v.name.indexOf(name) === -1) return false
-      if (phone && v.phone.indexOf(phone) === -1) return false
-      if (email && v.email.indexOf(email) === -1) return false
-      if (address && v.email.indexOf(address) === -1) return false
-      if (status !== undefined && v.status !== parseInt(status)) return false
-      return true
-    })
-    const total = data.length
-    data = data.slice((page - 1) * pageSize, page * pageSize)
+
     if (token === '123456') {
+      cfg.params = cfg.params || { page: 1, pageSize: 20 }
+      let { page, pageSize, name, phone, email, address, status } = cfg.params
+      let data = users.filter(v => {
+        if (name && v.name.indexOf(name) === -1) return false
+        if (phone && v.phone.indexOf(phone) === -1) return false
+        if (email && v.email.indexOf(email) === -1) return false
+        if (address && v.email.indexOf(address) === -1) return false
+        if (status !== undefined && v.status !== parseInt(status)) return false
+        return true
+      })
+      const total = data.length
+      data = data.slice((page - 1) * pageSize, page * pageSize)
       return [
         200,
         {
