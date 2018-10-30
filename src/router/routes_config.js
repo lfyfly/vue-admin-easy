@@ -5,10 +5,17 @@ import guest_routes from './routes/_guest'
 import users_common_routes from './routes/_users_common'
 import users_routes from './routes/users'
 import roles_routes from './routes/roles'
+import table_routes from './routes/table'
 
 // '_guest' 和 '_users' 为固定字段代表游客路由和所有用户通用路由
 const nav_routes_config = [
-
+  {
+    title: '表格',
+    // icon: 'el-icon-menu',
+    roles: ['admin'],
+    // 当 routes数组仅有一个路由时则判定为 单独路由
+    routes: table_routes
+  },
   // 拥有title字段将会被分组，且会被过滤到
   {
     title: '用户管理',
