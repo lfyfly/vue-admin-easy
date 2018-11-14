@@ -43,3 +43,18 @@
 - 切换表格每页显示数据条数 selectTableDataSize
 
 - 批量操作 -> batchHandle(例: 批量重置密码 -> batchResetPassword)
+
+
+# 步骤
+## read
+0. 分页校对字段：page pageSize
+
+1. read api -> readData（初始化：tableDataTotal）
+
+2. 搜索表单（:model="searchForm"）
+3. 分页
+
+## create
+
+
+##

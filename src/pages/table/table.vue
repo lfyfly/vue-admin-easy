@@ -2,7 +2,7 @@
   <div class="table-page">
     <!-- 操作栏 -->
     <div class="options">
-      <el-form ref="form" :model="searchForm" :inline="true" size="small">
+      <el-form ref="searchFormRef" :model="searchForm" :inline="true" size="small">
         <el-form-item label="姓名">
           <el-input v-model="searchForm.name" />
         </el-form-item>
@@ -153,7 +153,7 @@ export default {
     },
     createData () {
       console.log('createData ', this.dialogForm.form)
-      this.$refs.dialogForm.validate((valid) => {
+      this.$refs.dialogFormRef.validate((valid) => {
         if (valid) {
           alert('表单验证成功：createData!')
           // API.table.create(this.dialogForm.form).then(res => {
@@ -167,7 +167,7 @@ export default {
     },
     editData () {
       console.log('editData ', this.dialogForm.form)
-      this.$refs.dialogForm.validate((valid) => {
+      this.$refs.dialogFormRef.validate((valid) => {
         if (valid) {
           alert('表单验证成功：editData!')
           // API.table.update({ id: row.id, ...this.dialogForm.form }).then(res => {
@@ -188,7 +188,7 @@ export default {
     },
     closeDialogForm () {
       this.dialogForm.show = false
-      this.$refs.dialogForm.clearValidate()
+      this.$refs.dialogFormRef.clearValidate()
     },
     selectTableDataSize (pageSize) {
       this.searchForm.pageSize = pageSize
