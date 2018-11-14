@@ -49,12 +49,26 @@
 ## read
 0. 分页校对字段：page pageSize
 
-1. read api -> readData（初始化：tableDataTotal）
+1. read api -> readData（初始化：tableDataTotal）-> 失败提示语
 
-2. 搜索表单（:model="searchForm"）
-3. 分页
+2. 表格字段设置，字段个性化显示
+
+3. 添加搜索表单（:model="searchForm"）
+
+4. 分页 selectTablePage selectTableDataSize
 
 ## create
+1. 表单(:model="dialogForm.form") (dialogForm.option==='create') （select Map 来自 api文件中定义）
+2. create 对一下 dialogForm.title dialogForm.confirmBtnText
+3. createData -> create api 
+4. 操作成功失败提示语
 
+## edit
+1. 表单(:model="dialogForm.form") (dialogForm.option==='edit') （select Map 来自 api文件中定义）
+2. edit 对一下 dialogForm.title dialogForm.confirmBtnText
+3. editData -> update api 
+4. 操作成功失败提示语
 
-##
+## switchStatus
+1. 状态切换规则，多状态切换顺序 （Map 来自 api文件中定义）
+2. switchStatus -> update api
