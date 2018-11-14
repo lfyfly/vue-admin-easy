@@ -19,8 +19,8 @@ export default {
         let statusMap = STATUS_MAP.filter(mapItem => {
           return mapItem.value === item.status
         })[0]
-        item.statusText = statusMap.text
-        item.statusBtnText = statusMap.btnText
+        item._statusText = statusMap.text
+        item._statusBtnText = statusMap.btnText
       })
       return res
     })
