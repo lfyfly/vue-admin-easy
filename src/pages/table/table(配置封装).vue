@@ -11,13 +11,13 @@
           <el-button type="primary" @click="reset" plain>重置</el-button>
           <el-button type="primary" @click="create">新增</el-button>
           <!-- <el-button type="primary" @click="batchHandle">批量操作</el-button> -->
-          <el-button type="primary" @click="exportExcel">导出excel</el-button>
+          <el-button type="primary" v-if="staticConfig.exportExcel" @click="exportExcel">导出excel</el-button>
         </el-form-item>
       </el-form>
     </div>
     <!-- 表格 -->
     <el-table :data="tableData" style="width: 100%" @selection-change="selectionChange">
-      <el-table-column type="selection" width="55">
+      <el-table-column v-if="staticConfig.selectionShow&&staticConfig.selectionShow" type="selection" width="55">
       </el-table-column>
       <el-table-column prop="id" label="ID" width="100" />
       <el-table-column prop="name" label="姓名" width="120" />
@@ -82,7 +82,18 @@ export default {
   name: 'table-page',
   data () {
     return {
-      initialQuery: { page: 1, pageSize: 20 }, //  初始getData query
+      staticConfig: {
+        editSubmitFields: ['id', 'name', 'email', 'phone', 'address', 'status'], //  [*必须] 编辑时要上传的字段
+        initialQuery: { page: 1, pageSize: 20 }, //  初始getData query
+        selectionShow: true, // 表格数据多选
+        // 当exportExcelFields对象存在说明启用导出excel功能
+        // 当selectionShow为true导出选择数据，selectionShow为false时导出当前表格数据
+        exportExcel: {
+          fileName: '导出excel',
+          sheetHeader: ['ID', '姓名', '手机', '邮箱', '地址', '状态'], // 表头
+          sheetFilter: ['id', 'name', 'phone', 'email', 'address', 'statusText'] // 字段
+        }
+      }, // 静态配置
       searchForm: {},
       tableData: null,
       tableDataTotal: NaN,
@@ -121,7 +132,7 @@ export default {
     },
     getData () {
       // 1.获取query参数与默认参数进行合并
-      this.searchForm = { ...(this.initialQuery || {}), ...this.$route.query }
+      this.searchForm = { ...(this.staticConfig.initialQuery || {}), ...this.$route.query }
       // 2.发送请求
       API.table.read(this.searchForm).then(res => {
         console.log(res)
@@ -136,7 +147,7 @@ export default {
       this.reload()
     },
     reset () {
-      this.searchForm = this.initialQuery || {}
+      this.searchForm = this.staticConfig.initialQuery || {}
       this.reload()
     },
     create () {
@@ -152,7 +163,7 @@ export default {
       this.dialogForm.show = true
       this.dialogForm.confirmBtnText = '保 存'
       // 对可编辑字段进行筛选
-      this.dialogForm.form = this.filterEditableField(['id', 'name', 'email', 'phone', 'address', 'status'], row)
+      this.dialogForm.form = this.filterEditableField(this.staticConfig.editSubmitFields, row)
     },
     createSubmit () {
       console.log('createSubmit ', this.dialogForm.form)
@@ -206,21 +217,20 @@ export default {
       this.multipleSelection = val
     },
     exportExcel () {
-      if (this.multipleSelection.length === 0) {
+      if (this.staticConfig.selectionShow && this.multipleSelection.length === 0) {
         this.$message.warning('你没有选中任何表格数据！')
         return
       }
-      let sheetData = this.tableData
+      let sheetData = this.staticConfig.selectionShow ? this.multipleSelection : this.tableData
+      let { fileName, sheetHeader, sheetFilter } = this.staticConfig.exportExcel
       let option = {
-        fileName: '导出的excel文件名',
+        fileName,
         datas: [
           {
             sheetData,
             sheetName: 'sheet',
-            sheetHeader: ['ID', '姓名', '手机', '邮箱', '地址', '状态'],
-            sheetFilter: ['id', 'name', 'phone', 'email', 'address', 'statusText'],
-            // number 屏幕宽度为100 20即为 1/5屏幕大小
-            columnWidths: [4, 6, 8, 12, 16, 6]
+            sheetHeader,
+            sheetFilter
           }
         ]
       }
