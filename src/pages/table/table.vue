@@ -121,7 +121,7 @@ export default {
     },
     readData () {
       // 1.获取query参数与默认参数进行合并
-      this.searchForm = { ...(this.initialQuery || {}), ...this.$route.query }
+      this.searchForm = { ...this.initialQuery, ...this.searchForm }
       // 2.发送请求
       API.table.read(this.searchForm).then(res => {
         console.log(res)
@@ -129,15 +129,12 @@ export default {
         this.tableDataTotal = res.data.total
       })
     },
-    reload () {
-      this.$router.push({ path: this.$route.path, query: this.searchForm })
-    },
     search () {
-      this.reload()
+      this.readData()
     },
     reset () {
-      this.searchForm = this.initialQuery || {}
-      this.reload()
+      this.searchForm = {}
+      this.readData()
     },
     create () {
       this.dialogForm.title = '创建'
@@ -196,11 +193,11 @@ export default {
     selectTableDataSize (pageSize) {
       this.searchForm.pageSize = pageSize
       this.searchForm.page = 1
-      this.reload()
+      this.readData()
     },
     selectTablePage (page) {
       this.searchForm.page = page
-      this.reload()
+      this.readData()
     },
     selectionChange (val) {
       this.multipleSelection = val

@@ -26,7 +26,7 @@
       <el-table-column prop="address" label="地址" />
       <el-table-column prop="status" label="状态" width="120">
         <template slot-scope="scope">
-          <el-tag size="small" :type="scope.row.status===0? 'danger':'success'">{{scope.row.statusText}}</el-tag>
+          <el-tag size="small" :type="scope.row.status===0? 'danger':'success'">{{scope.row._statusText}}</el-tag>
         </template>
       </el-table-column>
       <el-table-column label="操作" width="160">
@@ -35,7 +35,7 @@
             编辑
           </el-button>
           <el-button type="text" size="small" @click="switchStatus(scope.row)">
-            {{scope.row.statusBtnText}}
+            {{scope.row._statusBtnText}}
           </el-button>
         </template>
       </el-table-column>
@@ -68,8 +68,8 @@
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="closeDialogForm">取 消</el-button>
-        <el-button v-if="dialogForm.option==='create'" type="primary" @click="createSubmit">{{dialogForm.confirmBtnText}}</el-button>
-        <el-button v-if="dialogForm.option==='edit'" type="primary" @click="editSubmit">{{dialogForm.confirmBtnText}}</el-button>
+        <el-button v-if="dialogForm.option==='create'" type="primary" @click="createData">{{dialogForm.confirmBtnText}}</el-button>
+        <el-button v-if="dialogForm.option==='edit'" type="primary" @click="editData">{{dialogForm.confirmBtnText}}</el-button>
       </span>
     </el-dialog>
   </div>
@@ -82,7 +82,7 @@ export default {
   name: 'table-page',
   data () {
     return {
-      initialQuery: { page: 1, pageSize: 20 }, //  初始getData query
+      initialQuery: { page: 1, pageSize: 20 }, //  初始readData query
       searchForm: {},
       tableData: null,
       tableDataTotal: NaN,
@@ -108,7 +108,7 @@ export default {
     }
   },
   created () {
-    this.getData()
+    this.readData()
   },
   methods: {
     filterEditableField (fields, obj) {
@@ -119,7 +119,7 @@ export default {
       })
       return newObj
     },
-    getData () {
+    readData () {
       // 1.获取query参数与默认参数进行合并
       this.searchForm = { ...(this.initialQuery || {}), ...this.$route.query }
       // 2.发送请求
@@ -154,31 +154,31 @@ export default {
       // 对可编辑字段进行筛选
       this.dialogForm.form = this.filterEditableField(['id', 'name', 'email', 'phone', 'address', 'status'], row)
     },
-    createSubmit () {
-      console.log('createSubmit ', this.dialogForm.form)
+    createData () {
+      console.log('createData ', this.dialogForm.form)
       this.$refs.dialogForm.validate((valid) => {
         if (valid) {
-          alert('表单验证成功：createSubmit!')
+          alert('表单验证成功：createData!')
           // API.table.create(this.dialogForm.form).then(res => {
-          //   this.getData()
+          //   this.readData()
           //   this.$message.success(res.data.message)
           // })
         } else {
-          console.log('表单验证失败：createSubmit!', this.dialogForm.form)
+          console.log('表单验证失败：createData!', this.dialogForm.form)
         }
       })
     },
-    editSubmit () {
-      console.log('editSubmit ', this.dialogForm.form)
+    editData () {
+      console.log('editData ', this.dialogForm.form)
       this.$refs.dialogForm.validate((valid) => {
         if (valid) {
-          alert('表单验证成功：editSubmit!')
+          alert('表单验证成功：editData!')
           // API.table.update({ id: row.id, ...this.dialogForm.form }).then(res => {
-          //   this.getData()
+          //   this.readData()
           //   this.$message.success(res.data.message)
           // })
         } else {
-          console.log('表单验证失败：editSubmit!', this.dialogForm.form)
+          console.log('表单验证失败：editData!', this.dialogForm.form)
         }
       })
     },
@@ -218,7 +218,7 @@ export default {
             sheetData,
             sheetName: 'sheet',
             sheetHeader: ['ID', '姓名', '手机', '邮箱', '地址', '状态'],
-            sheetFilter: ['id', 'name', 'phone', 'email', 'address', 'statusText'],
+            sheetFilter: ['id', 'name', 'phone', 'email', 'address', '_statusText'],
             // number 屏幕宽度为100 20即为 1/5屏幕大小
             columnWidths: [4, 6, 8, 12, 16, 6]
           }
